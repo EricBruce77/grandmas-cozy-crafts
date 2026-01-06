@@ -6,6 +6,7 @@ interface StarRatingProps {
   size?: "sm" | "md" | "lg";
   showCount?: boolean;
   reviewCount?: number;
+  className?: string;
 }
 
 export default function StarRating({
@@ -14,6 +15,7 @@ export default function StarRating({
   size = "md",
   showCount = false,
   reviewCount = 0,
+  className = "",
 }: StarRatingProps) {
   const sizeClasses = {
     sm: "w-3 h-3",
@@ -51,7 +53,7 @@ export default function StarRating({
   }
 
   return (
-    <div className="flex items-center gap-1">
+    <div className={`flex items-center gap-1 ${className}`}>
       <div className="flex items-center gap-0.5">{stars}</div>
       {showCount && reviewCount > 0 && (
         <span className={`${textSizeClasses[size]} text-text-secondary ml-1`}>
